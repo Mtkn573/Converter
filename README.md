@@ -1,1 +1,1 @@
-![test](test.mp4)
+![test](test.gif)
