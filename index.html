@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Converter</title>
+    <style>
+        html,
+        body {
+            margin: 0;
+            padding: 0;
+        }
+    </style>
+</head>
+
+<body>
+    <div>Roman to integer:</div>
+    <input id="romanInput">
+    <div id="integerOutput"></div>
+    <div>Integer to Roman:</div>
+    <input type="number" id="integerInput">
+    <div id="romanOutput"></div>
+    <script>
+        function integerToRoman(number) {
+            let roman = ""
+            while (number > 0) {
+                if (number >= 1000) {
+                    roman += "M"
+                    number -= 1000;
+                }
+                else if (number >= 900) {
+                    roman += "CM"
+                    number -= 900;
+                }
+                else if (number >= 500) {
+                    roman += "D"
+                    number -= 500;
+                }
+                else if (number >= 400) {
+                    roman += "CD"
+                    number -= 400;
+                }
+                else if (number >= 100) {
+                    roman += "C"
+                    number -= 100;
+                }
+                else if (number >= 90) {
+                    roman += "XC"
+                    number -= 90;
+                }
+                else if (number >= 50) {
+                    roman += "L"
+                    number -= 50;
+                }
+                else if (number >= 40) {
+                    roman += "XL"
+                    number -= 40;
+                }
+                else if (number >= 10) {
+                    roman += "X"
+                    number -= 10;
+                }
+                else if (number >= 9) {
+                    roman += "IX"
+                    number -= 9;
+                }
+                else if (number >= 5) {
+                    roman += "V"
+                    number -= 5;
+                }
+                else if (number >= 4) {
+                    roman += "IV"
+                    number -= 4;
+                }
+                else if (number <= 3) {
+                    roman += "I"
+                    number -= 1;
+                }
+            }
+            return roman;
+        };
+        let romanToInteger = function (roman) {
+            let symbols = {
+                "I": 1,
+                "V": 5,
+                "X": 10,
+                "L": 50,
+                "C": 100,
+                "D": 500,
+                "M": 1000
+            };
+            let value = 0;
+            for (let i = 0; i < roman.length; i++) {
+                if (i + 1 < roman.length && symbols[roman[i]] < symbols[roman[i + 1]]) {
+                    value -= symbols[roman[i]];
+                }
+                else {
+                    value += symbols[roman[i]];
+                }
+            }
+            return value;
+        };
+        document.getElementById("romanInput").addEventListener("input", function () {
+            document.getElementById("integerOutput").innerText = romanToInteger(document.getElementById("romanInput").value);
+        });
+        document.getElementById("integerInput").addEventListener("input", function () {
+            document.getElementById("romanOutput").innerText = integerToRoman(document.getElementById("integerInput").value);
+        });
+    </script>
+</body>
+
+</html>
