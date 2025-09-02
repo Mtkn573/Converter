@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pl">
 
 <head>
     <meta charset="UTF-8">
@@ -22,16 +22,16 @@
 <body>
 <img id="arrow" src="arrow.png" style="display: none;">
 <canvas id="canvas" width="350%" height="670px"></canvas>
-<div>Roman to integer:</div>
+<div>Liczba rzymska na liczbę całkowitą:</div>
 <input id="romanInput">
 <div id="integerOutput"></div>
-<div>Integer to Roman:</div>
+<div>Liczba całkowita na liczbę rzymską:</div>
 <input type="number" id="integerInput">
 <div id="romanOutput"></div>
-<img id="changeToPolish" src="polandFlag.jpg" style="position: fixed; bottom: 0;left: 0;cursor: pointer;">
+<img id="changeToEnglish" src="unitedStatesFlag.jpg" style="position: fixed; bottom: 0;left: 0;cursor: pointer;">
 <script>
-    document.getElementById(`changeToPolish`).addEventListener(`click`, function () {
-        window.location.href = `polish.html`
+    document.getElementById(`changeToEnglish`).addEventListener(`click`, function () {
+        window.location.href = `index.html`
     })
     function integerToRoman(number) {
         let roman = ""
